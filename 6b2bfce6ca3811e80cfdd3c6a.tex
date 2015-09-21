@@ -1,0 +1,250 @@
+
+
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+\documentclass[12pt]{report}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{geometry} % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+
+\usepackage{fancyvrb}
+\usepackage{longtable}
+
+\usepackage{hyperref}
+
+\usepackage{booktabs}
+\usepackage{bookmark}
+
+
+\hypersetup{breaklinks=true,
+            pdfauthor={Arthur JEANNIN\\Florent CLAPIÉ},
+            pdftitle={tp-1-igraphr-introductionemphrushed-kanawati},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=colourUrl,
+            linkcolor=colourLink,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{6pt}
+\setlength{\parskip}{4pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+\VerbatimFootnotes % allows verbatim text in footnotes
+
+\usepackage{xcolor}
+\definecolor{colourLink}{HTML}{000000}
+\definecolor{colourUrl}{HTML}{000000}
+\newcommand{\euro}{€}
+
+
+
+\title{TP 1 IGRAPH/R - Introduction\\\emph{Rushed KANAWATI}}
+\author{Arthur JEANNIN \and Florent CLAPIÉ}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+
+\tableofcontents  \newpage  
+
+
+\section{Introduction}
+
+L'objectif de ce TP est de se familiariser avec R et l'outil igraph : un
+outil d'analyse et de visualisation de graphes.
+
+\textbf{}
+
+Ce tp est disponible sur github :
+\href{https://github.com/florent1933/tp1-ars}{https://github.com/florent1933/tp1-ars}
+
+\textbf{}
+
+Pour faire fonctionner le code, il suffit de définir le chemin d'accès
+vers le dossier du code.
+
+\section{Explication du TP}
+
+\textbf{}
+
+\subsection{Question 1}
+
+\textbf{}
+
+Nous avons écrit une fonction topology qui prend en paramètre un graphe
+G. La fonction résume les principales caractéristiques topologiques d'un
+graphe :
+
+-- vcount(g) : retourne le nombre de nœuds dans g
+
+-- ecount(g) : retourne le nombre de liens dans g
+
+-- graph.density(g) : donne la densit ́e du graphe g
+
+-- diameter(g) : retourne le diam`etre du graphe g
+
+-- degree(g) : retourne le degrés de chaque nœud dans g
+
+-- degree.distribution(g) : calcule la distribution de degrés de g
+
+--  transitivity(g) : calcule le coefficient de clustering du graphe g
+--  average.path.length(g) : retourne la moyenne de tous les plus courts
+chemins dans le graphe.
+
+--  shortest.paths(g) : retourne un matrice qui donne les longueurs de
+plus courts chemins entre chaque couple de nœuds.
+
+--  betweenness(g) : calcule la centralité d'intermédiarité
+
+--  closeness(g) : calcule la centralité de proximité.
+
+--  is.connected(g) : retourne TRUE si le graphe est connexe.
+
+--  clusters(g) : retourne une lite des composantes connexes dans le
+graphe
+
+\subsection{Question 2}
+
+\textbf{}
+
+Pour afficher la distribution de degrés d'un graphe, nous avons écrit
+une fonction distribution qui prend en paramètre un graphe G et affiche
+la distribution de degrés d'un graphe.
+
+\textbf{}
+
+\begin{center} 
+
+ \includegraphics[width = 0.684285714286\textwidth]{8c4d2b5825c27c405bd7561a0f01d3c643aeb93cc48ffd5016df4998.png}
+
+
+\end{center}
+
+\begin{itemize}
+\item
+  Distribution de Karaté
+\end{itemize}
+
+\textbf{}
+
+\begin{itemize}
+\item
+\end{itemize}
+
+\textbf{}
+
+\subsection{Question 3}
+
+\textbf{Comparaison des diamètres entre les différents algos }
+
+\textbf{}
+
+\begin{center} 
+
+ \includegraphics[width = 0.684285714286\textwidth]{54e424bfb04aa449ca359bd37a3a93ada73f966a36da2683bbebb3bc.png}
+
+
+\end{center}
+
+\textbf{}
+
+\textbf{}
+
+Pour étudier les variations de diamètres et de transitivité en fonction
+du nombre de noeuds, nous avons tracé un graphe avec des noeuds qui vont
+de 50 à 100 avec un pas de 5 pour chaque algo.
+
+\begin{center} 
+
+ \includegraphics[width = 0.684285714286\textwidth]{27abd17eab777a5f2be24ae34bc51f3ef3951097089a826f7f964c84.png}
+
+
+\end{center}
+
+\begin{center} 
+
+ \includegraphics[width = 0.684285714286\textwidth]{cd18930fc9788546f3414c86dfd203d68b3e3e82fd535edde70a454c.png}
+
+
+\end{center}
+
+\begin{center} 
+
+ \includegraphics[width = 0.684285714286\textwidth]{889618549b854eecd98844258724b8e269c2b88d2511f9e01fc794a3.png}
+
+
+\end{center}
+
+\subsection{Question 4}
+
+Pour la coloration des graphes, nous avons colorié par rapport à la
+valeur des noeuds.
+
+Nous avons utilisé un vecteur de couleur contenant le nom de nos
+couleurs.
+
+\begin{center} 
+
+ \includegraphics[width = 0.684285714286\textwidth]{77ad8b142505bb3c1ce2cffb81e367f46d632c7fbc1470f90637d1a5.png}
+
+
+\end{center}
+
+\textbf{Communauté karaté}
+
+\textbf{}
+
+Pour voir les autres communautés, il faut lancer le programme car il y a
+trop de noeuds. 
+
+\subsection{Question 5}
+
+Il y a 12 graphes, merci de vous référer au code.
+
+Exemple pour le graphe \textbf{football}
+
+\begin{center} 
+
+ \includegraphics[width = 0.765714285714\textwidth]{42221fa301f11def6c9951ee6be91502590bbaea0df1a28ee458757b.png}
+
+
+\end{center} \begin{center} 
+
+ \includegraphics[width = 0.765714285714\textwidth]{ea0d0a61fe2c57b31196467b89ccde66edad78c47daba3740aa4daf0.png}
+
+
+\end{center} \begin{center} 
+
+ \includegraphics[width = 0.765714285714\textwidth]{f68f726570577a236a87fb43048e507a3ec76893c77644c8cca1a3ef.png}
+
+
+\end{center}
+
+\section{Conclusion}
+
+\textbf{}
+
+Ce TP fut très intéressant, il nous a permis de nous familiariser avec R
+bien que nous ayons eu des difficultés.
+
+Nous n'avons pas trouvé comment faire des commentaires multilignes,
+concaténer une chaîne + variable de façon correcte :
+
+\begin{verbatim}
+cat("nombre de noeuds : ",  vcount(g), "\n")
+\end{verbatim}
+
+Il nous a aussi permis d'apprendre à utiliser igraph
+
+
+
+\end{document}
+

@@ -82,15 +82,39 @@ community = function(g) {
 
 
 #question 5
-
+ssGraphe <- function(g) {
+  b <- betweenness(g)
+  c <- closeness(g)
+  deg <- degree(g)
+  
+  bIndex <- which.max(b)
+  cIndex <- which.max(c)
+  degIndex <- which.max(deg)
+  
+  ssg1 <- graph.neighborhood(g,1,bIndex)[[1]]
+  ssg2 <- graph.neighborhood(g,1,cIndex)[[1]]
+  ssg3 <- graph.neighborhood(g,1,degIndex)[[1]]
+  
+  plot(ssg1, main="Centralité de l'intermédiarité")
+  plot(ssg2, main="Centralité de proximité")
+  plot(ssg3, main="Degrés")
+}
 
 # main
+# 1
 topology(karate)
+# 2
 distribution(karate)
-
+# 3
 comparator(100)
-
+# 4
 community(dolphins)
 community(karate)
+community(polbooks)
+# 5
+ssGraphe(karate)
+ssGraphe(dolphins)
+ssGraphe(polbooks)
+ssGraphe(football)
 
 

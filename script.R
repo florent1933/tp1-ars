@@ -7,6 +7,7 @@ football <- read.graph("data/football.gml.txt", format="gml")
 dolphins <- read.graph("data/dolphins.gml.txt", format="gml")
 polbooks <- read.graph("data/polbooks.gml.txt", format="gml")
 
+# Question 1
 topology <- function(g) {
   cat("nombre de noeuds : ",  vcount(g), "\n")
   cat("densité du graphe : ", graph.density(g), "\n")
@@ -22,5 +23,14 @@ topology <- function(g) {
   #neighbors(g,x)
 }
 
+# question 2
+distribution = function (g) {
+  cat("Degré de distribution", degree.distribution(g), "\n")
+}
+
+
+# main
 topology(karate)
+distribution(karate)
+
 

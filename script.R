@@ -13,19 +13,21 @@ topology <- function(g) {
   cat("densité du graphe : ", graph.density(g), "\n")
   cat("nombre de noeuds : ", degree(g), "\n")
   cat("degrés de chaque noeud : ", degree.distribution(g), "\n")
-  cat("distribution de degrés : ", transitivity(g), "\n")
   cat("la moyenne des plus courts chemins : ", average.path.length(g), "\n")
   cat("matrice des plus courts chemins : ", shortest.paths(g), "\n")
   cat("centralité d'intermédialité : ", betweenness(g), "\n")
   cat("centralité de proximité : ", closeness(g), "\n")
   cat("graphe connexe : ", is.connected(g), "\n")
-  cat("liste des composantes connexes: ", clusters(g), "\n")
+  
+  print("graphe connexe : ")
+  print(clusters(g))
   #neighbors(g,x)
 }
 
 # question 2
 distribution = function (g) {
   cat("Degré de distribution", degree.distribution(g), "\n")
+  plot(degree.distribution(g))
 }
 
 

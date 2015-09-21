@@ -30,9 +30,31 @@ distribution = function (g) {
   plot(degree.distribution(g))
 }
 
+# question 3
+comparator = function (n) {
+  er_graph <- erdos.renyi.game(n, 2/100)
+  ws_graph <- watts.strogatz.game(1, n, 4, 0.05)
+  ba_graph <- barabasi.game(n)
+  
+  print("erdos.renyi.game")
+  cat("Diamètre", diameter(er_graph))
+  cat("Transitivité", transitivity(er_graph), "\n")
+  
+  print("watts.strogatz.game")
+  cat("Diamètre", diameter(ws_graph))
+  cat("Transitivité", transitivity(ws_graph), "\n")
+  
+  print("barabasi.game")
+  cat("Diamètre", diameter(ba_graph))
+  cat("Transitivité", transitivity(ba_graph), "\n")
+
+}
+
 
 # main
 topology(karate)
 distribution(karate)
+
+comparator(100)
 
 
